@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Товар 1",
+      "price": 1000,
+      "rating": 4.5,
+      "link": "https://example.com/product1"
+    },
+    {
+      "id": 2,
+      "name": "Товар 2",
+      "price": 1500,
+      "rating": 4.7,
+      "link": "https://example.com/product2"
+    },
+    {
+      "id": 3,
+      "name": "Товар 3",
+      "price": 2000,
+      "rating": 4.2,
+      "link": "https://example.com/product3"
+    },
+    {
+      "id": 4,
+      "name": "Товар 4",
+      "price": 2500,
+      "rating": 4.8,
+      "link": "https://example.com/product4"
+    }
+  ]

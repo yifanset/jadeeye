@@ -1,26 +1,71 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <PageHeader/>
+    <SearchBlock @search="showProductList" />
+    <ProductList v-if="showProducts" ref="productList" @show-statistics="showStatistics"/>
+    <StatisticBlock v-if="showStatisticsBlock" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchBlock from "@/components/SearchBlock.vue";
+import ProductList from "@/components/ProductList.vue";
+import PageHeader from "@/components/PageHeader.vue";
+import StatisticBlock from "@/components/StatisticBlock.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    PageHeader,
+    SearchBlock,
+    ProductList,
+    StatisticBlock,
+  },
+  data() {
+    return {
+      showProducts: false,
+      showStatisticsBlock: false,
+    };
+  },
+  methods: {
+    showProductList() {
+      this.showProducts = true;
+      this.showStatisticsBlock = false; // Скрываем StatisticBlock при показе ProductList
+    },
+    showStatistics() {
+      this.showStatisticsBlock = !this.showStatisticsBlock; // Переключаем видимость StatisticBlock
+    },
+  },
+};
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
+
+h2{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+
+  }
+
+  h1{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    text-align: left;
+    margin-left: 15px;
+    color: black;
+    font-size: 30px;
+  }
+  p{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+  a{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+  
 </style>
