@@ -1,71 +1,46 @@
 <template>
-  <div id="app">
-    <PageHeader/>
-    <SearchBlock @search="showProductList" />
-    <ProductList v-if="showProducts" ref="productList" @show-statistics="showStatistics"/>
-    <StatisticBlock v-if="showStatisticsBlock" />
+  <div class="app" id="app">
+    <header class="header">
+      <SvgLogo class="header__logo" width="292" height="91"/>
+    </header>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import SearchBlock from "@/components/SearchBlock.vue";
-import ProductList from "@/components/ProductList.vue";
-import PageHeader from "@/components/PageHeader.vue";
-import StatisticBlock from "@/components/StatisticBlock.vue";
+import SvgLogo from "@/components/svg/SvgLogo.vue";
+
 
 export default {
   components: {
-    PageHeader,
-    SearchBlock,
-    ProductList,
-    StatisticBlock,
-  },
-  data() {
-    return {
-      showProducts: false,
-      showStatisticsBlock: false,
-    };
-  },
-  methods: {
-    showProductList() {
-      this.showProducts = true;
-      this.showStatisticsBlock = false; // Скрываем StatisticBlock при показе ProductList
-    },
-    showStatistics() {
-      this.showStatisticsBlock = !this.showStatisticsBlock; // Переключаем видимость StatisticBlock
-    },
+    SvgLogo,
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  /* text-align: center; */
-  color: #2c3e50;
-  /* margin-top: 60px; */
+
+body{
+    margin: 0;
 }
 
-h2{
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    text-align: center;
-    color: black;
-    font-size: 30px;
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #ffffff;  
+  width: 550px;
+  height: 100px;
 
-  }
+}
 
-  h1{
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    text-align: left;
-    margin-left: 15px;
-    color: black;
-    font-size: 30px;
-  }
-  p{
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-  }
-  a{
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-  }
+#app {
+  font-family: "Open Sans", sans-serif;
+  color: #2c3e50;
+
+}
+
+
   
 </style>

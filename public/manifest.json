@@ -1,11 +1,14 @@
 {
-    "manifest_version": 3,
-    "name": "Lisian Prime",
-    "version": "1.0",
-    "description": "Расширение для сравнения товаров с Alibaba.",
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": "icon.png"
-    },
-    "permissions": []
-  }
+  "manifest_version": 3,
+  "name": "Jade Eye",
+  "version": "1.0",
+  "description": "Расширение для сравнения товаров с Alibaba.",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "permissions": []
+}
