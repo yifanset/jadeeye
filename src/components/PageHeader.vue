@@ -1,15 +1,18 @@
 <template>
-
     <header class="page-header">
       <div class="page-header__container">
-        <div class="page-header__logo-wrap">
-          <SvgLogo class="page-header__logo" width="284" height="141" />
-        </div>
+        <button @click="goToHome" class="page-header__logo-wrap">
+          <SvgLogo class="page-header__logo" width="466" height="100" />
+        </button>
 
         <div class="page-header__right-block">
-          <button @click="handleButtonClick">
-            {{ buttonText }}
-          </button>
+          <buttom @click="goToHome" class="page-header__btn">
+            <a class="page-header__btn-text">Главная</a>
+          </buttom>
+
+          <buttom @click="goToEntrance" class="page-header__btn">
+            <a class="page-header__btn-text">Личный кабинет</a>
+          </buttom>
         </div>
         
       </div>
@@ -23,23 +26,13 @@ export default {
   components: {
     SvgLogo,
   },
-
-  computed: {
-    // Определяем текст кнопки в зависимости от текущего маршрута
-    buttonText() {
-      return this.$route.name === 'Profile' ? 'Выход' : 'Личный кабинет';
-    },
-  },
   methods: {
-    handleButtonClick() {
-      if (this.$route.name === 'Profile') {
-        // Если мы на странице личного кабинета, переходим на главную страницу
-        this.$router.push({ name: 'Home' });
-      } else {
-        // Иначе переходим на страницу личного кабинета
-        this.$router.push({ name: 'Profile' });
-      }
+    goToHome() {
+      this.$router.push('/')
     },
+    goToEntrance() {
+      this.$router.push('/entrance')
+    }
   },
 };
 
@@ -57,7 +50,7 @@ export default {
 
   &__container {
     .container();
-    height: 136px;
+    height: 100px;
     display: flex;
     align-items: center;
   }
@@ -86,25 +79,25 @@ export default {
 
   &__right-block{
       display: flex;
+      justify-content: end;
       margin-left: auto;
-      width: 243px;       /* Ширина прямоугольника */
-      height: 50px;      /* Высота прямоугольника */
-      background-color: none; /* Цвет фона */
-      border: #00A2FF solid 3px; /* Граница (необязательно) */
-      justify-content: center;
+      width: 500px;
+      height: 100px;      
+      gap: 30px;
       border-radius: 50px;
       place-items: center;
-      
+  }
+
+  &__btn-text{
+      cursor: pointer;
+      color: #10AEED;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: "Open Sans", sans-serif;
   }
 
 }
 
-button{
-  color: #00A2FF; /* Цвет текста кнопки */
-  cursor: pointer;
-  font-size: 16px;
-
-}
 
 
 </style>
